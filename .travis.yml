@@ -12,13 +12,14 @@ addons:
       - gcc-7
       - g++-7
 install:
+- sudo apt install gcc-9 g++-9
 - sudo apt-get install python3-setuptools
 - sudo pip3 install conan --upgrade
 - sudo pip3 install conan_package_tools
 - conan user
 script:
-- export CC=gcc-7
-- export CXX=g++-7
+- export CC=gcc-9
+- export CXX=g++-9
 - conan install .
 - cmake .
 - make
