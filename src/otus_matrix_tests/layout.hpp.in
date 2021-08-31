@@ -1,0 +1,6 @@
+#pragma once
+
+inline const char* test_folder_path()
+{
+    return "${PROJECT_SOURCE_DIR}/test_files";
+}
