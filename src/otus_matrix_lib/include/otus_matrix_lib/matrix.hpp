@@ -40,7 +40,7 @@ namespace otus_matrix
 
 		void remove_column(size_t const& column)
 		{
-			for(auto& row : matrix_)
+			for (auto& row : matrix_)
 			{
 				row.erase(row.begin() + column);
 			}
@@ -103,5 +103,24 @@ namespace otus_matrix
 		}
 
 		return os;
+	}
+
+	template <class T>
+	bool operator==(matrix<T> const& lhs, matrix<T> const& rhs)
+	{
+		if (lhs.columns() != rhs.columns() ||
+			lhs.rows() != rhs.rows())
+			return false;
+
+		for (auto i = 0u; i < lhs.rows(); i++)
+		{
+			for (auto j = 0u; j < lhs.columns(); j++)
+			{
+				if (lhs.get_element(i, j) != rhs.get_element(i, j))
+					return false;
+			}
+		}
+
+		return true;
 	}
 }
